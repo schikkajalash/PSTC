@@ -1,0 +1,14 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Parameterization Test Suite">
+	<test name="Testing Parameterization">
+	<parameter name="prjName" value="drg"/>
+	<parameter name="testEnvironment" value="{AccountSubmission=Windows 7||Firefox}"/>
+	<parameter name="instanceName" value="test"/>
+	<parameter name="sauceUser" value="Local"/>
+	<parameter name="moduleName" value="drg"/>
+	<parameter name="testSetName" value="drg"/>
+		<classes>
+			<class name="tests.sanity.GoogleSearch" />
+		</classes>
+	</test>
+</suite>

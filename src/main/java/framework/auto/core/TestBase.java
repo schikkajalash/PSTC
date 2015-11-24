@@ -54,24 +54,13 @@ public class TestBase {
 	public static Properties	CONFIG	                    = null;
 	public static Properties	OR	                        = null;
 	//public static Xls_Reader	suiteXls	                = null;
-	public static Xls_Reader	mylAuto_Classes_xls	        = null;
-	public static Xls_Reader	mylAuto_AccountCreation_xls	= null;
-	public static Xls_Reader	mylAuto_Independant_xls	    = null;
-	public static Xls_Reader	mylAuto_testAndSurveys	    = null;
-	public static Xls_Reader    mylAuto_discounts			= null;
-	public static Xls_Reader    mylAuto_certifications		= null;
-	public static Xls_Reader	mylAuto_credits				= null;
-	public static Xls_Reader	mylAuto_Recertification_xls	= null;
-	public static Xls_Reader	mylAuto_Reports      	    = null;
-	public static Xls_Reader	mylAuto_Production      	= null;
-	public static Xls_Reader    mylAuto_Common_xls          = null;
+	public static Xls_Reader	PSTC_Google_xls	       	    = null;
 	public static boolean	 isInitialized	                = false;
 	public static boolean	 isBrowserOpened	            = false;
 	public static WebDriver	 driver	                        = null;
 	private String	         existing_window	            = null;
 	private String	         new_window	                    = null;
-	private static String	 xlsFilePath	                = File.separator + "src" + File.separator + "mylearn" + File.separator + "vmware" + File.separator + "com" + File.separator + "xls"
-	                                                                + File.separator;
+	private static String	 xlsFilePath	                = File.separator + "src" + File.separator + "main" + File.separator + "java" + File.separator + "framework" + File.separator + "auto"+ File.separator+ "xls"+ File.separator;
 	// value for the wait loop
 	// private final int WAIT_TO_CHECK = 500;
 	private static Random	 rand	                        = new Random();
@@ -124,13 +113,13 @@ public class TestBase {
 			// reading from config.properties file
 			APP_LOGS.info("Loading Property files...");
 			CONFIG = new Properties();
-			FileInputStream ip = new FileInputStream(baseDirectory + File.separator + File.separator + "src" + File.separator + "mylearn" + File.separator + "vmware" + File.separator + "com"
+			FileInputStream ip = new FileInputStream(baseDirectory + File.separator + File.separator + "src" + File.separator + "main" + File.separator + "java" + File.separator + "framework"+File.separator + "auto"
 			        + File.separator + "config" + File.separator + "config.properties");
 			CONFIG.load(ip);
 			// reading from OR.properties file
 			OR = new Properties();
-			ip = new FileInputStream(baseDirectory + File.separator + "src" + File.separator + "mylearn" + File.separator + "vmware" + File.separator + "com" + File.separator + "config"
-			        + File.separator + "OR.properties");
+			ip = new FileInputStream(baseDirectory + File.separator + File.separator + "src" + File.separator + "main" + File.separator + "java" + File.separator + "framework"+File.separator + "auto"
+			        + File.separator + "config" + File.separator + "OR.properties");
 			OR.load(ip);
 			APP_LOGS.info("Loaded Property files successfully");
 			APP_LOGS.info("Loading XLS files...");
@@ -140,17 +129,8 @@ public class TestBase {
 			//suiteXls = new Xls_Reader(baseDirectory + xlsFilePath + "Suite.xlsx");
 		    
 			
-		    mylAuto_certifications = new Xls_Reader(baseDirectory + xlsFilePath + "Certifications.xlsx");
-			mylAuto_Reports = new Xls_Reader(baseDirectory + xlsFilePath + "mylAuto_Reports.xlsx");
-			mylAuto_Production = new Xls_Reader(baseDirectory + xlsFilePath + "mylAuto_Production.xlsx");
-			mylAuto_Independant_xls = new Xls_Reader(baseDirectory + xlsFilePath + "mylAuto_Independant.xlsx");
-			mylAuto_AccountCreation_xls = new Xls_Reader(baseDirectory + xlsFilePath + "mylAuto_AccountCreation.xlsx");
-			mylAuto_Recertification_xls = new Xls_Reader(baseDirectory + xlsFilePath + "mylAuto_Recertifications.xlsx");
-			mylAuto_discounts = new Xls_Reader(baseDirectory + xlsFilePath + "Discounts.xlsx");
-			mylAuto_credits = new Xls_Reader(baseDirectory + xlsFilePath + "ConsultingAndTrainingCredits.xlsx");
-			mylAuto_testAndSurveys = new Xls_Reader(baseDirectory + xlsFilePath + "Tests_Surveys.xlsx");
-			mylAuto_Classes_xls = new Xls_Reader(baseDirectory + xlsFilePath + "mylAuto_Classes.xlsx");
-			mylAuto_Common_xls = new Xls_Reader(baseDirectory + xlsFilePath + "mylAuto_Common_xls.xlsx");
+		    PSTC_Google_xls = new Xls_Reader(baseDirectory + xlsFilePath + "Google.xlsx");
+		    
 			
 			APP_LOGS.info("baseDirectory:"+baseDirectory+"xlsFilePath:"+xlsFilePath);
 			APP_LOGS.info("Loaded XLS files successfully");
@@ -204,7 +184,7 @@ public class TestBase {
 	 */
 	
 	public void popUpClose() {
-		sleep(3000);;
+		sleep(3000);
 		try{
 		driver.switchTo().alert().accept();
 		}
@@ -272,7 +252,7 @@ public class TestBase {
 	public boolean checkElementPresence(String xpathKey) {
 		int count = driver.findElements(By.xpath(OR.getProperty(xpathKey))).size();
 		try {
-			Assert.assertTrue(count > 0, "No element present");
+			Assert.assertTrue(count > 0, "Element present");
 		} catch (Throwable t) {
 			ErrorUtil.addVerificationFailure(t);
 			APP_LOGS.info("No Element Present");
