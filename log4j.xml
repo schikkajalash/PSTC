@@ -8,7 +8,7 @@
   </appender>
   
   <appender name="default.file.info" class="org.apache.log4j.FileAppender">
-        <param name="file" value=".//src//mylearn//vmware//com//logs//Application.log" />
+        <param name="file" value=".//src//main//java//framework//auto//logs//Application.log" />
         <param name="append" value="false" />
         <param name="threshold" value="info" />
         <layout class="org.apache.log4j.PatternLayout">
@@ -17,7 +17,7 @@
     </appender>
     
     <appender name="default.file.error" class="org.apache.log4j.FileAppender">
-        <param name="file" value=".//src//mylearn//vmware//com//logs//Application_error.log" />
+        <param name="file" value=".//src//main//java//framework//auto//logs//Application_error.log" />
         <param name="append" value="false" />
         <param name="threshold" value="error" />
         <layout class="org.apache.log4j.PatternLayout">

@@ -1,0 +1,8 @@
+2015-11-25 07:22:57,371 INFO  [TestBase] - Loading Property files...
+2015-11-25 07:22:57,376 INFO  [TestBase] - Loaded Property files successfully
+2015-11-25 07:22:57,376 INFO  [TestBase] - Loading XLS files...
+2015-11-25 07:22:58,106 INFO  [TestBase] - baseDirectory:C:\Users\kvempali\workspace\PSTCxlsFilePath:\src\main\java\framework\auto\xls\
+2015-11-25 07:22:58,106 INFO  [TestBase] - Loaded XLS files successfully
+2015-11-25 07:23:10,517 INFO  [TestBase] - Checking Run mode of Suite
+2015-11-25 07:23:10,519 INFO  [TestBase] - Folder to be cleared is C:\Users\kvempali\workspace\PSTC\screenshots
+2015-11-25 07:23:10,519 INFO  [TestBase] - Screen Shot director not present in test-output, no action needed
