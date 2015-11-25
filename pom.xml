@@ -19,6 +19,7 @@
                     <suiteXmlFiles>
                         <suiteXmlFile>testng.xml</suiteXmlFile>
                     </suiteXmlFiles>
+                    <reportsDirectory>target/test-classes/Results</reportsDirectory>
                 </configuration>
             </plugin>
             <!-- Compiler plugin configures the java version to be usedfor compiling
@@ -58,7 +59,7 @@
 		              <parameters>
 		                  <parameter>
 		                      <name>testNgXslt.outputDir</name>
-		                      <value>${basedir}/target/surefire-reports/xslt</value>
+		                      <value>${basedir}/target/test-classes/Results/html</value>
 		                  </parameter>
 		                  <parameter>
 		                      <name>testNgXslt.sortTestCaseLinks</name>
@@ -74,7 +75,7 @@
 		                  </parameter>
 		              </parameters>
 		            </transformationSet>
-		            <transformationSet>
+		            <!--transformationSet>
 		              <dir>target/surefire-reports/xslt</dir>
 		              <includes>
 		                  <include>*.xml</include>
@@ -86,7 +87,7 @@
 		                </fileMapper>
 		              </fileMappers>
 		              <outputDir>target/surefire-reports/xslt</outputDir>
-		            </transformationSet>
+		            </transformationSet-->
 		          </transformationSets>
 		        </configuration>
 		        <dependencies>
@@ -109,13 +110,13 @@
 		          </execution>
 		        </executions>
 				<configuration>
-					<destDir>target/surefire-reports/xslt</destDir>
+					<destDir>target/test-classes/Results/html</destDir>
 					<mimeType>image/png</mimeType>
 					<!--width>100</width>
 					<height>100</height-->
 					<svgResources>
 						<resource>
-							<directory>target/surefire-reports/xslt</directory>
+							<directory>target/test-classes/Results/html</directory>
 							<includes>
 								<include>**/*.svg</include>
 							</includes>
@@ -135,13 +136,15 @@
 		                        </goals>
 		                        <inherited>false</inherited>
 		                        <configuration>
-		                                <from>Jenkins_QEAuto@vmware.com</from>
-		                                <subject>HPP TEST15:Execution Completed!!!</subject>
+		                                <from>Jenkins@gmail.com</from>
+		                                <subject>Test Execution Completed!!!</subject>
 		                                <failonerror>true</failonerror>
-		                                <mailhost>email.vmware.com</mailhost>
-		                                <mailuser>automationqauser</mailuser>
-		                                <mailpassword>@ut0M@ti0nP0rtal123</mailpassword>
-		                                <htmlMessageFile>target/surefire-reports/xslt/overview.html</htmlMessageFile>
+		                                <mailhost>smtp.gmail.com</mailhost>
+		                                <mailport>587</mailport>
+		                                <mailuser>krishna.vempali@gmail.com</mailuser>
+		                                <mailpassword>Honey125</mailpassword>
+		                                <mailssl>true</mailssl>
+		                                <htmlMessageFile>target/test-classes/Results/html/overview.html</htmlMessageFile>
 		                                <receivers>
 		                                        <receiver>kvempali@vmware.com</receiver>
 		                                        <!--receiver>nakkala@vmware.com</receiver-->

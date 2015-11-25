@@ -60,20 +60,17 @@ public class GoogleSearch extends TestBase {
 			throw new SkipException("skipping the current set of data as the runmode is set to No");
 		}
 		try {
-			GOOGLE_LOGS.info("Executing Search String using Google");
-			// Account creation
+			GOOGLE_LOGS.info("Executing: Search using Google");
+			// Launch browser and navigate to URL
 //			openBrowser();
 			openLandingPage(CONFIG.getProperty("testSiteName"));
-			Thread.sleep(5000);
-			// Uncheck education offerings
+			// Enter the string to search for in the search bar
 			input_TextField("GoogleSearchBar",SearchString,"Google Search Page: Enter the string which you want to search ");
-			
-//			objectClick("GoogleSearchBar", "Google Search Page: Enter the string which you want to search ");
-			// Click on Continue button
+			// Click on Search button
 			objectClick("SearchButton", "Google Search Page: Hit Google Search button ");
-			String accountActivationMsg = getTextForAnElement(driver, "ResultString");
+			String SResult = getTextForAnElement(driver, "ResultString");
 //			currentURL = driver.getCurrentUrl();
-			Assert.assertTrue(accountActivationMsg.equals(SearchResult), "Google Search Page :: Result showing up :: ");
+			Assert.assertTrue(SResult.equals(SearchResult), "Google Search Page :: Result showing up :: ");
 			// Activate contact account
 //			activateContactAccount(adminUsername, adminPassword, currentURL, captcha, successMsg1);
 		} catch (AssertionError ae) {
@@ -81,7 +78,7 @@ public class GoogleSearch extends TestBase {
 			fail = true;
 			throw ae;
 		}
-		GOOGLE_LOGS.info("End of Create Account Contact Non Compliance Scripts");
+		GOOGLE_LOGS.info("End of Google Search");
 	}
 
 	@AfterMethod
